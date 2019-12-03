@@ -57,14 +57,20 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <OutputFile>$(Configuration)/$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "..\BIN\$(Configuration)\"</Command>
+      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "..\BIN\$(Configuration)\$(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -77,93 +83,99 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <OutputFile>$(Configuration)/$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "..\BIN\$(Configuration)\"</Command>
+      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "..\BIN\$(Configuration)\$(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AboutLDFEditor.cpp" />
     <ClCompile Include="CodingDlg.cpp" />
     <ClCompile Include="EventFrameEditDlg.cpp" />
     <ClCompile Include="FaultSignalsDlg.cpp" />
-    <ClCompile Include="GeneratedFiles\Debug\moc_AboutLDFEditor.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_AboutLDFEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_CodingDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_CodingDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_EventFrameEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_EventFrameEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_FaultSignalsDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_FaultSignalsDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ldfadditionalview.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ldfadditionalview.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFCLusterPropsDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFCLusterPropsDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFCommonTableWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFCommonTableWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFDatabaseManager.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFDatabaseManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ldfeditor.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ldfeditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFElementView.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFElementView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFNetworkView.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFNetworkView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFPropertyView.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFPropertyView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFTableWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFTableWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LDFUtility.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFUtility.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LineEditWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LineEditWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_MapSignalsDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_MapSignalsDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_MasterEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_MasterEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_NodeConfigurationDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_NodeConfigurationDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ScheduleComboWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ScheduleComboWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ScheduleTableDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ScheduleTableDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SignalDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SignalDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SignalGroupDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SignalGroupDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SporadicFrameEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SporadicFrameEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_UnconditionalFrameEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_UnconditionalFrameEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SlaveDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SlaveDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_ldfeditor.cpp">
@@ -172,82 +184,82 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_AboutLDFEditor.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_AboutLDFEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_CodingDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_CodingDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_EventFrameEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_EventFrameEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_FaultSignalsDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_FaultSignalsDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ldfadditionalview.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ldfadditionalview.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFCLusterPropsDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFCLusterPropsDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFCommonTableWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFCommonTableWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFDatabaseManager.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFDatabaseManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ldfeditor.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ldfeditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFElementView.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFElementView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFNetworkView.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFNetworkView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFPropertyView.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFPropertyView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFTableWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFTableWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LDFUtility.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LDFUtility.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LineEditWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_LineEditWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_MapSignalsDlg.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_MasterEditDlg.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_NodeConfigurationDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_MapSignalsDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ScheduleComboWidget.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_MasterEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ScheduleTableDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_NodeConfigurationDlg.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ScheduleComboWidget.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_ScheduleTableDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SignalDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SignalDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SignalGroupDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SignalGroupDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SlaveDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SlaveDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SporadicFrameEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_SporadicFrameEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_UnconditionalFrameEditDlg.cpp">
+    <ClCompile Include="GeneratedFiles\$(Configuration)\moc_UnconditionalFrameEditDlg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>

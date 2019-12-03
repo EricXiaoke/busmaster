@@ -261,7 +261,6 @@
     <ClCompile Include="ClientManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-   
     <ClCompile Include="LINSignalExtractor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -586,7 +585,6 @@
     <ClInclude Include="ClientManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-   
     <ClInclude Include="LINSignalExtractor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -711,6 +709,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="..\BIN\Release\BUSMASTER.exe.manifest" />
+    <Manifest Include="..\BIN\$(Configuration)\BUSMASTER.exe.manifest" />
   </ItemGroup>
 </Project>

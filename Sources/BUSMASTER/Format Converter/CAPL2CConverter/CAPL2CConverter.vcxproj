@@ -9,10 +9,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Template|Win32">
-      <Configuration>Template</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8A7CA724-4B42-4DCA-9237-0AF94AA8B35F}</ProjectGuid>
@@ -33,9 +29,6 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <PlatformToolset>v120</PlatformToolset>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -47,14 +40,13 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\BUSMASTER_Settings\BUSMASTER.props" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\BIN\$(Configuration)\ConverterPlugins\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\BIN\$(Configuration)\ConverterPlugins\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCInstallDir)include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(IncludePath)</IncludePath>
@@ -70,7 +62,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
     </Midl>
     <ClCompile>
-      <AdditionalOptions>/I "../../Localization/include" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/I "$(SolutionDir)..\Localization/include" %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.;$(VC_IncludePath);$(WindowsSDK_IncludePath);..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -88,9 +80,9 @@
       <AdditionalIncludeDirectories>$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalOptions>"../$(IntDir)/DBC2DBFConverterLibrary.lib" 
-"../../BIN/Libs/$(IntDir)Utils.lib" %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>$(SolutionDir)/bin/$(IntDir)ConverterPlugins/$(ProjectName).dll</OutputFile>
+      <AdditionalOptions>"..\..\BIN\Libs\$(Configuration)\ConverterPlugins\DBC2DBFConverterLibrary.lib" 
+"../../BIN/Libs/$(Configuration)/Utils.lib" %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
@@ -100,13 +92,20 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>..\..\BIN\Libs\$(Configuration)\ConverterPlugins\$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>../../bin/DumpFiles/$(Configuration)/PDB/ConverterPlugins/$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir ..\..\bin\$(IntDir)ConverterPlugins
-copy "..\bin\$(IntDir)ConverterPlugins\$(ProjectName).dll" "..\..\bin\$(IntDir)ConverterPlugins\"
-exit 0
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -114,7 +113,7 @@ exit 0
       <MkTypLibCompatible>false</MkTypLibCompatible>
     </Midl>
     <ClCompile>
-      <AdditionalOptions>/I "../../Localization/include" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/I "$(SolutionDir)..\Localization/include" %(AdditionalOptions)</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>.;$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -126,7 +125,7 @@ exit 0
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>
       </DebugInformationFormat>
-      <ObjectFileName>../../bin/DumpFiles/$(IntDir)/OBJ/$(ProjectName)/</ObjectFileName>
+      <ObjectFileName>../../bin/DumpFiles/$(Configuration)/OBJ/$(ProjectName)/</ObjectFileName>
       <StringPooling>true</StringPooling>
     </ClCompile>
     <ResourceCompile>
@@ -135,9 +134,9 @@ exit 0
       <AdditionalIncludeDirectories>$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalOptions>"../$(IntDir)/DBC2DBFConverterLibrary.lib" 
-"../../BIN/Libs/$(IntDir)Utils.lib" %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>$(SolutionDir)/bin/$(IntDir)ConverterPlugins/$(ProjectName).dll</OutputFile>
+      <AdditionalOptions>"..\..\BIN\Libs\$(Configuration)\ConverterPlugins\DBC2DBFConverterLibrary.lib" 
+"../../BIN/Libs/$(Configuration)/Utils.lib" %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
@@ -150,14 +149,20 @@ exit 0
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <IgnoreSpecificDefaultLibraries>daouuid.lib</IgnoreSpecificDefaultLibraries>
-      <ProgramDatabaseFile>../../bin/DumpFiles/$(IntDir)/PDB/$(TargetName).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>../../bin/DumpFiles/$(Configuration)/PDB/ConverterPlugins/$(TargetName).pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>..\..\BIN\Libs\$(Configuration)\ConverterPlugins\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir ..\..\bin\$(IntDir)ConverterPlugins
-copy "..\bin\$(IntDir)ConverterPlugins\$(ProjectName).dll" "..\..\bin\$(IntDir)ConverterPlugins\"
-exit 0
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBC2DBFConverterLibrary\DBC2DBFConverterLibrary.vcxproj">

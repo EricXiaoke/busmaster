@@ -46,7 +46,6 @@
 #define USAGE_EXPORT
 #include "CAN_NSI_Extern.h"
 
-
 // CCAN_NSI
 
 BEGIN_MESSAGE_MAP(CCAN_NSI, CWinApp)
@@ -101,7 +100,7 @@ HANDLE NSI_hWakeUp = INVALID_HANDLE_VALUE;          // WAKE-UP event handle
 DWORD NSI_threadId;
 HANDLE NSI_hThread;
 
-#define MAX_CAN_MSG_PTR 8192 //4096 
+#define MAX_CAN_MSG_PTR 8192 //4096
 static STCAN_MSG sTxMsgTab[MAX_CAN_MSG_PTR];
 static UINT nbMsgInTab = 0;
 

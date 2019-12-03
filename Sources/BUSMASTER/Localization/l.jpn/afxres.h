@@ -287,38 +287,38 @@
 #define ID_VIEW_TOOLBAR                 0xE800
 #define ID_VIEW_STATUS_BAR              0xE801
 #define ID_VIEW_REBAR                   0xE804
-#define ID_VIEW_AUTOARRANGE         0xE805
+#define ID_VIEW_AUTOARRANGE             0xE805
 // E810 -> E81F must be kept in order for RANGE macros
 #define ID_VIEW_SMALLICON               0xE810
 #define ID_VIEW_LARGEICON               0xE811
-#define ID_VIEW_LIST                   0xE812
+#define ID_VIEW_LIST                    0xE812
 #define ID_VIEW_DETAILS                 0xE813
 #define ID_VIEW_LINEUP                  0xE814
 #define ID_VIEW_BYNAME                  0xE815
-#define AFX_ID_VIEW_MINIMUM              ID_VIEW_SMALLICON
-#define AFX_ID_VIEW_MAXIMUM              ID_VIEW_BYNAME
+#define AFX_ID_VIEW_MINIMUM             ID_VIEW_SMALLICON
+#define AFX_ID_VIEW_MAXIMUM             ID_VIEW_BYNAME
 // E800 -> E8FF reserved for other control bar commands
 
 // RecordForm commands
-#define ID_RECORD_FIRST                 0xE900
-#define ID_RECORD_LAST                  0xE901
-#define ID_RECORD_NEXT                  0xE902
-#define ID_RECORD_PREV                  0xE903
+#define ID_RECORD_FIRST         0xE900
+#define ID_RECORD_LAST          0xE901
+#define ID_RECORD_NEXT          0xE902
+#define ID_RECORD_PREV          0xE903
 
 #ifdef _WIN32_WCE
 
 // Find/Replace dialog/menu commands
-#define ID_EDIT1                    (0xE500)
-#define ID_EDIT2                    (0xE501)
+#define ID_EDIT1                (0xE500)
+#define ID_EDIT2                (0xE501)
 #define ID_CHECK1               (0xE502)
 #define ID_CHECK2               (0xE503)
 #define ID_GROUP1               (0xE504)
-#define ID_RADIO1                           (0xE505)
-#define ID_RADIO2                           (0xE506)
-#define ID_BUTTON_HELP                  (0xE507)
-#define ID_BUTTON1                          (0xE508)
-#define ID_BUTTON2                          (0xE509)
-#define ID_BUTTON_FIND              (0xE50A)
+#define ID_RADIO1               (0xE505)
+#define ID_RADIO2               (0xE506)
+#define ID_BUTTON_HELP          (0xE507)
+#define ID_BUTTON1              (0xE508)
+#define ID_BUTTON2              (0xE509)
+#define ID_BUTTON_FIND          (0xE50A)
 
 #define ID_MENU_SP              (0xE50B)
 #endif //_WIN32_WCE

@@ -42,11 +42,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -60,12 +60,21 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalOptions>"$(SolutionDir)Bin\$(Configuration)\BusmasterDBNetwork.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"$(SolutionDir)BIN/Libs/$(Configuration)/BusmasterDBNetwork.lib" %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDatabaseFile>$(SolutionDir)Bin/DumpFiles/$(Configuration)/PDB/ConverterPlugins/$(TargetName).pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(SolutionDir)BIN/Libs/$(Configuration)/$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <PostBuildEvent>
       <Command>md "$(SolutionDir)..\BUSMASTER\BIN\$(Configuration)\"
 copy "$(TargetPath)" "$(SolutionDir)..\BUSMASTER\BIN\$(Configuration)\"</Command>
     </PostBuildEvent>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -83,12 +92,27 @@ copy "$(TargetPath)" "$(SolutionDir)..\BUSMASTER\BIN\$(Configuration)\"</Command
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalOptions>"$(SolutionDir)Bin\$(Configuration)\BusmasterDBNetwork.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"$(SolutionDir)BIN/Libs/$(Configuration)/BusmasterDBNetwork.lib" %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDatabaseFile>$(SolutionDir)Bin/DumpFiles/$(Configuration)/PDB/ConverterPlugins/$(TargetName).pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>$(SolutionDir)BIN/Libs/$(Configuration)/$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>md "$(SolutionDir)..\BUSMASTER\BIN\$(Configuration)\"
 copy "$(TargetPath)" "$(SolutionDir)..\BUSMASTER\BIN\$(Configuration)\"</Command>
     </PostBuildEvent>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)$(TargetName)$(TargetExt).embed.manifest.res</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).embed.manifest</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BusMasterKernel.h" />

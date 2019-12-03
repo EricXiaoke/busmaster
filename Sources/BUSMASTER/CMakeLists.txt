@@ -96,11 +96,11 @@ set(MFC_LIBRARIES
 #
 # common compiler/linker settings
 #
-add_definitions(-DWINVER=0x0500) # Windows 2000
+#add_definitions(-DWINVER=0x0500) # Windows 2000
 #add_definitions(-DWINVER=0x0501) # Windows XP
 #add_definitions(-DWINVER=0x0502) # Windows Server 2003
 #add_definitions(-DWINVER=0x0600) # Windows Vista
-#add_definitions(-DWINVER=0x0601) # Windows 7
+add_definitions(-DWINVER=0x0601) # Windows 7
 #add_definitions(-D_VC80_UPGRADE=0x0710)
 link_directories(
   ${ATL_PATH}/lib/ATL/i386
@@ -139,7 +139,7 @@ add_subdirectory(LIN_ISOLAR_EVE_VLIN)
 add_subdirectory(LIN_PEAK_USB)
 add_subdirectory(LIN_Vector_XL)
 # add_subdirectory(Localization)
-add_subdirectory(MHS_CNFG)
+add_subdirectory(MHSBMCFG)
 add_subdirectory(NodeSimEx)
 add_subdirectory(ProjectConfiguration)
 add_subdirectory(PSDI_CAN)

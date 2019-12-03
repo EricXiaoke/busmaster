@@ -1,20 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="busmaster_debug|Win32">
-      <Configuration>busmaster_debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Template|Win32">
-      <Configuration>Template</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -24,13 +16,6 @@
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseOfMfc>Dynamic</UseOfMfc>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120_xp</PlatformToolset>
-    <CLRSupport>false</CLRSupport>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -43,16 +28,8 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <PlatformToolset>v120_xp</PlatformToolset>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
-    <Import Project="..\Warnings_Supress.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -66,43 +43,29 @@
     <Import Project="..\Busmaster_Kernel_Includes.props" />
     <Import Project="..\Warnings_Supress.props" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <Import Project="..\Warnings_Supress.props" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)BIN/$(Configuration)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)BIN/$(Configuration)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     </LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">$(Configuration)\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">false</GenerateManifest>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\EXTERNAL\zlib\include;$(SolutionDir)\EXTERNAL\libxml2\include;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)\EXTERNAL\libxml2\lib;$(SolutionDir)\EXTERNAL\zlib\lib;$(LibraryPath)</LibraryPath>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\BIN\Release\$(ProjectName)</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\EXTERNAL\zlib\include;$(SolutionDir)\EXTERNAL\libxml2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)\EXTERNAL\libxml2\lib;$(SolutionDir)\EXTERNAL\zlib\lib;$(LibraryPath)</LibraryPath>
-    <TargetName>..\..\BIN\busmaster_debug\$(ProjectName)</TargetName>
-    <ExecutablePath>$(VCInstallDir)bin;$(WindowsSdkDir_71A)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
-    <EmbedManifest>false</EmbedManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)EXTERNAL\zlib\include;$(SolutionDir)EXTERNAL\libxml2\include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)EXTERNAL\libxml2\lib;$(SolutionDir)EXTERNAL\zlib\lib;$(LibraryPath)</LibraryPath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <EmbedManifest>false</EmbedManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\EXTERNAL\zlib\include;$(SolutionDir)\EXTERNAL\libxml2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)\EXTERNAL\libxml2\lib;$(SolutionDir)\EXTERNAL\zlib\lib;$(LibraryPath)</LibraryPath>
-    <TargetName>..\..\BIN\Debug\$(ProjectName)</TargetName>
-    <GenerateManifest>false</GenerateManifest>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)EXTERNAL\zlib\include;$(SolutionDir)EXTERNAL\libxml2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)EXTERNAL\libxml2\lib;$(SolutionDir)EXTERNAL\zlib\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)</TargetName>
+    <GenerateManifest>true</GenerateManifest>
     <EmbedManifest>false</EmbedManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -110,7 +73,7 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\Debug/CAN_Monitor.tlb</TypeLibraryName>
+      <TypeLibraryName>$(Configuration)\CAN_Monitor.tlb</TypeLibraryName>
       <HeaderFileName>CAN_Monitor_Interface.h</HeaderFileName>
       <DllDataFileName>CAN_Monitor_Interface.c</DllDataFileName>
     </Midl>
@@ -123,10 +86,10 @@
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>.\Debug/CAN_Monitor.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
-      <ObjectFileName>$(SolutionDir)/bin/DumpFiles/$(IntDir)/OBJ/$(ProjectName)/</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(Configuration)\CAN_Monitor.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>$(SolutionDir)BIN/DumpFiles/$(Configuration)/OBJ/$(ProjectName)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)\</ProgramDataBaseFileName>
       <BrowseInformation>true</BrowseInformation>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -138,36 +101,50 @@
       <AdditionalIncludeDirectories>$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalOptions>"$(SolutionDir)/BIN/Libs/$(OutDir)Utils.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)DataTypes.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)ProjectConfiguration.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)NodeSimEx.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)FrameProcessor.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Replay.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)SignalWatch.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Filter.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)CommonClass.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)PSDI_CAN.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)SignalDefiner.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"$(SolutionDir)BIN/Libs/$(Configuration)/Utils.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/DataTypes.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/ProjectConfiguration.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/NodeSimEx.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/FrameProcessor.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/Replay.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/SignalWatch.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/Filter.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/CommonClass.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/PSDI_CAN.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/SignalDefiner.lib" %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>Winmm.lib;shlwapi.lib;htmlhelp.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)/bin/$(OutDir)BUSMASTER.exe</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(SolutionDir)/bin/DumpFiles/$(IntDir)/PDB/$(TargetName).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(SolutionDir)BIN/DumpFiles/$(Configuration)/PDB/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <ImportLibrary>$(SolutionDir)BIN/Libs/$(Configuration)/$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <PostBuildEvent>
-      <Command>copy ".\BUSMASTER_Interface.h" "$(SolutionDir)\bin\$(OutDir)BUSMASTER_Interface.h"
-copy ".\BUSMASTER_Interface.c" "$(SolutionDir)\bin\$(OutDir)BUSMASTER_Interface.c"
-copy ".\$(OutDir)BUSMASTER.tlb" "$(SolutionDir)\bin\$(OutDir)BUSMASTER.tlb"
-copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
+      <Command>copy ".\BUSMASTER_Interface.h" "$(SolutionDir)BIN\$(Configuration)\BUSMASTER_Interface.h"
+copy ".\BUSMASTER_Interface.c" "$(SolutionDir)BIN\$(Configuration)\BUSMASTER_Interface.c"
+copy ".\$(Configuration)/BUSMASTER.tlb" "$(SolutionDir)BIN\$(Configuration)\BUSMASTER.tlb"
+copy ".\Res\Splsh16.bmp" "$(SolutionDir)BIN\$(Configuration)\Splsh16.bmp"
 </Command>
     </PostBuildEvent>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)$(TargetName)$(TargetExt).embed.manifest.res</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).embed.manifest</ResourceOutputFileName>
+    </ManifestResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -175,12 +152,12 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\Release/CAN_Monitor.tlb</TypeLibraryName>
+      <TypeLibraryName>$(Configuration)\CAN_Monitor.tlb</TypeLibraryName>
       <HeaderFileName>CAN_Monitor_Interface.h</HeaderFileName>
       <DllDataFileName>CAN_Monitor_Interface.c</DllDataFileName>
     </Midl>
     <ClCompile>
-      <AdditionalOptions>/I "$(SolutionDir)/Localization/include" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/I "$(SolutionDir)Localization/include" %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(SolutionDir);$(VC_IncludePath);$(WindowsSDK_IncludePath);..\EXTERNAL\libxml2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -190,9 +167,9 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
-      <ObjectFileName>$(SolutionDir)/bin/DumpFiles/$(IntDir)/OBJ/$(ProjectName)/</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <AssemblerListingLocation>$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>$(SolutionDir)BIN/DumpFiles/$(Configuration)/OBJ/$(ProjectName)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)\</ProgramDataBaseFileName>
       <BrowseInformation>
       </BrowseInformation>
       <WarningLevel>Level4</WarningLevel>
@@ -205,24 +182,24 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <AdditionalIncludeDirectories>$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalOptions>"$(SolutionDir)/BIN/Libs/$(OutDir)Utils.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)DataTypes.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)ProjectConfiguration.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)NodeSimEx.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)FrameProcessor.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Replay.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)SignalWatch.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Filter.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)CommonClass.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)PSDI_CAN.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)SignalDefiner.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"$(SolutionDir)BIN/Libs/$(Configuration)/Utils.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/DataTypes.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/ProjectConfiguration.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/NodeSimEx.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/FrameProcessor.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/Replay.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/SignalWatch.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/Filter.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/CommonClass.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/PSDI_CAN.lib"
+"$(SolutionDir)BIN/Libs/$(Configuration)/SignalDefiner.lib" %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>Winmm.lib;shlwapi.lib;htmlhelp.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)/bin/$(OutDir)BUSMASTER.exe</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>daouuid.lib</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(SolutionDir)/bin/DumpFiles/$(IntDir)/PDB/$(TargetName).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(SolutionDir)BIN/DumpFiles/$(Configuration)/PDB/$(TargetName).pdb</ProgramDatabaseFile>
       <GenerateMapFile>false</GenerateMapFile>
       <MapFileName>
       </MapFileName>
@@ -234,99 +211,28 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <AllowIsolation>true</AllowIsolation>
+      <ImportLibrary>$(SolutionDir)BIN/Libs/$(Configuration)/$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <PostBuildEvent>
-      <Command>copy ".\BUSMASTER_Interface.h" "$(SolutionDir)\bin\$(OutDir)BUSMASTER_Interface.h"
-copy ".\BUSMASTER_Interface.c" "$(SolutionDir)\bin\$(OutDir)BUSMASTER_Interface.c"
-copy ".\$(OutDir)BUSMASTER.tlb" "$(SolutionDir)\bin\$(OutDir)BUSMASTER.tlb"
-copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
+      <Command>copy ".\BUSMASTER_Interface.h" "$(SolutionDir)BIN\$(Configuration)\BUSMASTER_Interface.h"
+copy ".\BUSMASTER_Interface.c" "$(SolutionDir)BIN\$(Configuration)\BUSMASTER_Interface.c"
+copy ".\$(Configuration)/BUSMASTER.tlb" "$(SolutionDir)BIN\$(Configuration)\BUSMASTER.tlb"
+copy ".\Res\Splsh16.bmp" "$(SolutionDir)BIN\$(Configuration)\Splsh16.bmp"
 </Command>
     </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-    <Midl>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>true</MkTypLibCompatible>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\Release/CAN_Monitor.tlb</TypeLibraryName>
-      <HeaderFileName>CAN_Monitor_Interface.h</HeaderFileName>
-      <DllDataFileName>CAN_Monitor_Interface.c</DllDataFileName>
-    </Midl>
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>.\Release/CAN_Monitor.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
-      <ObjectFileName>$(SolutionDir)/bin/DumpFiles/$(IntDir)/OBJ/$(ProjectName)/</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
-      <BrowseInformation>false</BrowseInformation>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;PEAK_USB_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>"$(SolutionDir)/BIN/Libs/$(OutDir)DIL_Interface.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Utils.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)ProjectConfiguration.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)NodeSimEx.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)FrameProcessor.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Replay.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)SignalWatch.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)Filter.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)CommonClass.lib"
-"$(SolutionDir)/BIN/Libs/$(OutDir)PSDI_CAN.lib" %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>Winmm.lib;shlwapi.lib;htmlhelp.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)/bin/$(OutDir)BUSMASTER.exe</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(SolutionDir)/bin/DumpFiles/$(IntDir)/PDB/$(TargetName).pdb</ProgramDatabaseFile>
-      <GenerateMapFile>false</GenerateMapFile>
-      <MapFileName>
-      </MapFileName>
-      <MapExports>false</MapExports>
-      <SubSystem>Windows</SubSystem>
-      <StackReserveSize>8000000</StackReserveSize>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <TargetMachine>MachineX86</TargetMachine>
-      <AllowIsolation>true</AllowIsolation>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-    </Link>
-    <PostBuildEvent>
-      <Command>copy ".\BUSMASTER_Interface.h" "$(SolutionDir)\bin\$(OutDir)BUSMASTER_Interface.h"
-copy ".\BUSMASTER_Interface.c" "$(SolutionDir)\bin\$(OutDir)BUSMASTER_Interface.c"
-copy ".\$(OutDir)BUSMASTER.tlb" "$(SolutionDir)\bin\$(OutDir)BUSMASTER.tlb"
-copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
-</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <ClCompile>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <Optimization>Disabled</Optimization>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
+    <Xdcmake>
+      <OutputFile>$(IntDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)$(TargetName)$(TargetExt).embed.manifest.res</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).embed.manifest</ResourceOutputFileName>
+    </ManifestResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp" />
@@ -338,17 +244,10 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="AppServices_Impl.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="BUSMASTER.cpp">
@@ -359,10 +258,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="BusmasterDump.cpp" />
     <ClCompile Include="BusmasterPluginManager.cpp" />
@@ -370,17 +265,11 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="BusStatisticLIN.cpp" />
     <ClCompile Include="BusStatistics.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="BusStatisticsDlg.cpp">
@@ -391,10 +280,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="CANSignalExtractor.cpp" />
     <ClCompile Include="ClientManager.cpp" />
@@ -402,33 +287,21 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="CNVTCToolBar.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ConfigData.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ConfigMsgDispPropPg.cpp" />
     <ClCompile Include="DatabaseDissociateDlg.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="DisplayIntMsg.cpp">
@@ -439,10 +312,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="DriverInfoDlg.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -452,10 +321,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ElementSelection.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -464,10 +329,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ChannelConfigurationDlg.cpp" />
@@ -479,10 +340,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="FlexTxHandler.cpp" />
     <ClCompile Include="GraphConfiguration.cpp">
@@ -493,17 +350,10 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="GraphElement.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="GraphList.cpp">
@@ -514,10 +364,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="GraphParameters.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -527,24 +373,16 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ImportLogToolbar.cpp" />
     <ClCompile Include="InterfaceGetter.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="J1939TimeOutCfg.cpp" />
     <ClCompile Include="LINBusStatisticsDlg.cpp" />
     <ClCompile Include="LINSignalExtractor.cpp" />
-    
     <ClCompile Include="MainFrm.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -552,10 +390,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MDIChildBase.cpp">
@@ -566,10 +400,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MessageAttrib.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -578,10 +408,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MessageDetailsDlg.cpp">
@@ -592,10 +418,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MessageInterpretation.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -605,10 +427,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MessageList.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -617,10 +435,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MessageWindowSettingsDialog.cpp" />
@@ -633,10 +447,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgFilterConfigPage.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -646,17 +456,10 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgFrmtWnd.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgIDAttr.cpp">
@@ -667,10 +470,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgSgDetView.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -679,10 +478,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgSgTreeView.cpp">
@@ -693,10 +488,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgSignal.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -705,10 +496,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgSignalDBWnd.cpp">
@@ -719,25 +506,15 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgWndHdrInfo.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MsgWndThread.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="MultiLanguage.cpp" />
@@ -752,10 +529,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ProgressBarDlg.cpp" />
     <ClCompile Include="Properties.cpp">
@@ -766,33 +539,20 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="RxMsgList.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="SigGrphConfigDlg.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="SigGrphWndHandler.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="SignalDetailsDlg.cpp">
@@ -803,25 +563,15 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="Splash.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="SplFileDlg.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="StdAfx.cpp">
@@ -834,42 +584,25 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Create</PrecompiledHeader>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="Struct.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="TreeItemParam.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="TSEditorHandler.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="TSExecutorHandler.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="TxMsgWndJ1939.cpp" />
@@ -903,10 +636,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
     <ClCompile Include="ValueDescriptionDlg.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -915,10 +644,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
       </BrowseInformation>
     </ClCompile>
     <ClCompile Include="VariableLayer.cpp" />
@@ -929,14 +654,11 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </BrowseInformation>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">Disabled</Optimization>
-      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">
-      </BrowseInformation>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="BUSMASTER.idl">
-      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug/BUSMASTER.tlb</TypeLibraryName>
+      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\BUSMASTER.tlb</TypeLibraryName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BUSMASTER_Interface.h</HeaderFileName>
       <DllDataFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">dlldata.c</DllDataFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BUSMASTER_Interface.c</InterfaceIdentifierFileName>
@@ -945,11 +667,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">BUSMASTER_Interface.h</HeaderFileName>
       <DllDataFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">dlldata.c</DllDataFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">BUSMASTER_Interface.c</InterfaceIdentifierFileName>
-      <MkTypLibCompatible Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">false</MkTypLibCompatible>
-      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">BUSMASTER.tlb</TypeLibraryName>
-      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">BUSMASTER_Interface.h</HeaderFileName>
-      <DllDataFileName Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">dlldata.c</DllDataFileName>
-      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='busmaster_debug|Win32'">BUSMASTER_Interface.c</InterfaceIdentifierFileName>
     </Midl>
   </ItemGroup>
   <ItemGroup>
@@ -1002,7 +719,6 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
     <ClInclude Include="LINBusStatisticsDlg.h" />
     <ClInclude Include="LinChannelParam.h" />
     <ClInclude Include="LINSignalExtractor.h" />
-    
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MDIChildBase.h" />
     <ClInclude Include="MessageAttrib.h" />
@@ -1177,7 +893,7 @@ copy ".\Res\Splsh16.bmp" "$(SolutionDir)\bin\$(OutDir)Splsh16.bmp"
     <Image Include="Res\ShowRibbon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="..\BIN\Release\BUSMASTER.exe.manifest">
+    <Manifest Include="$(IntDir)$(TargetName)$(TargetExt).intermediate.manifest">
       <SubType>Designer</SubType>
     </Manifest>
   </ItemGroup>

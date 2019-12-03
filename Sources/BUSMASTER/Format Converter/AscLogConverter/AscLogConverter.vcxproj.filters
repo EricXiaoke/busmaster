@@ -39,8 +39,8 @@
     <CustomBuild Include="Asc_Log_Lexer.l">
       <Filter>Source Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Asc_Log_Parser.y">
-      <Filter>Source Files</Filter>
+    <CustomBuild Include="Asc_Log_Parser.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

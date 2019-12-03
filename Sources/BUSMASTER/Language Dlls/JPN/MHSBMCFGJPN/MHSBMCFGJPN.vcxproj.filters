@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="$(SolutionDir)..\TestSuiteExecutorGUI\TestSuiteExecutorGUIJPN.rc">
+    <ResourceCompile Include="..\..\..\MHSBMCFG\Res\mhsbmcfgJPN.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
